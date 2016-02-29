@@ -19,10 +19,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install gd \
     && pecl install imagick \
     && docker-php-ext-enable imagick \
-    && curl https://sdk.cloud.google.com | bash \
-    && rm -rf /var/lib/apt/lists \
-    && rm -rf /tmp/* \
-    && apt-get autoremove -y
+    && curl https://sdk.cloud.google.com | bash 
 
 #Download dependencies
 
@@ -41,9 +38,6 @@ RUN docker-php-ext-install \
     mbstring \
     pdo_mysql \
 #    xxhash \
-    bcmath \
-    && rm -rf /var/lib/apt/lists \
-    && rm -rf /tmp/* \
-    && apt-get autoremove -y
+    bcmath
 
 CMD ["php"]
