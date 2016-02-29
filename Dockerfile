@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install gd \
     && pecl install imagick \
     && docker-php-ext-enable imagick \
-    && curl https://sdk.cloud.google.com | bash &&  exec -l $SHELL \    
+    && curl https://sdk.cloud.google.com | bash \    
     && rm -rf /var/lib/apt/lists \
     && rm /tmp/* \
     apt-get autoremove -y
