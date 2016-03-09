@@ -33,7 +33,7 @@ ENV COMPOSER_HOME /root/composer
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN gcloud components update kubectl
+#RUN gcloud components update kubectl
 
 RUN docker-php-ext-install \
     zip \
