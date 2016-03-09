@@ -22,6 +22,11 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-enable imagick \
     && curl https://sdk.cloud.google.com | bash 
 
+# export gcloud
+
+RUN ls -lisa
+env PATH /root/google-cloud-sdk/bin:$PATH
+
 #Download dependencies
 
 # Set memory limit
@@ -30,10 +35,11 @@ RUN echo "memory_limit=1024M" > /usr/local/etc/php/conf.d/memory-limit.ini
 # Set environmental variables
 ENV COMPOSER_HOME /root/composer
 
+
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-#RUN gcloud components update kubectl
+RUN /root/google-cloud-sdk/bin/gcloud components update kubectl
 
 RUN docker-php-ext-install \
     zip \
