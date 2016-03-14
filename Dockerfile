@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y \
     && pecl install imagick \
     && pecl install xdebug \
     && docker-php-ext-enable imagick \
+    && docker-php-ext-enable xdebug \
     && curl https://sdk.cloud.google.com | bash 
 
 # export gcloud
