@@ -2,7 +2,7 @@ FROM php:5.6-cli
 
 #update repo
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get upgrade && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
@@ -29,7 +29,6 @@ RUN apt-get update && apt-get install -y \
 
 # export gcloud
 
-RUN ls -lisa
 env PATH /root/google-cloud-sdk/bin:$PATH
 
 #Download dependencies
